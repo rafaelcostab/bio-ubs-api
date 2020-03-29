@@ -1,4 +1,4 @@
-package com.bionexo.ubs.configuration.classes;
+package com.bionexo.ubs.file;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
