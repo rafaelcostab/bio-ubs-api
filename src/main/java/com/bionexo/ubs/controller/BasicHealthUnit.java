@@ -11,7 +11,7 @@ public class BasicHealthUnit {
 	
 	@GetMapping("/find_ubs")
 	@ResponseBody
-	public String FindBasicHealthUnit() {
+	public String FindBasicHealthUnit() {	
 		return "test";
 	}
 
