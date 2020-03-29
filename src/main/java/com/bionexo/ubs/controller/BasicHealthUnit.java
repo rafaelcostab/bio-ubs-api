@@ -19,7 +19,11 @@ public class BasicHealthUnit {
 	@ResponseBody
 	public String FindBasicHealthUnit() {
 		
+		Long init = System.currentTimeMillis();
+
 		file.process();
+
+		System.out.println("Tempo processamento: " + (System.currentTimeMillis() - init)+ "ms");
 		
 		return "test";
 	}

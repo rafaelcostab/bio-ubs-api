@@ -21,20 +21,19 @@ public class ProcessFileCsv {
 	@Autowired
 	private RepositoryFileProperties properties;
 	
+	private List<BasicHealthUnit> ubss;
+	
 	public void process() {
 		System.out.println(properties.getCsvPath());
 		
 		try {
-			Long init = System.currentTimeMillis();
-			List<BasicHealthUnit> ubss = convertRowDataToBasicHealtUnit();
-//			for (BasicHealthUnit ubs : ubss) {
-//				System.out.println("Id: " + ubs.getId());
-//			}
 			
-			System.out.println("Total: " + ubss.size());
-			System.out.println("Tempo processamento: " + (System.currentTimeMillis() - init)+ "ms");
+			if (ubss == null || ubss.isEmpty()) {
+				System.out.println("Loading file..");
+				ubss = convertRowDataToBasicHealtUnit(loadFile());
+			}
+			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -47,10 +46,10 @@ public class ProcessFileCsv {
 		return csvToBean.parse();
 	}
 	
-	private List<BasicHealthUnit> convertRowDataToBasicHealtUnit() throws IOException{
+	private List<BasicHealthUnit> convertRowDataToBasicHealtUnit(List<RawDataUBS> rawDataUBS) throws IOException{
 		List<BasicHealthUnit> basicHealthUnit = new ArrayList<>();
 		
-		for (RawDataUBS data : loadFile()) {
+		for (RawDataUBS data : rawDataUBS) {
 			basicHealthUnit.add(dataToUnit(data));
 		}
 		
