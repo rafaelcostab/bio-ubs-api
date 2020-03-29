@@ -1,0 +1,7 @@
+{"properties": [
+  {
+    "name": "repository.file.csv-path",
+    "type": "java.lang.String",
+    "description": "Path to the file to be proccessed"
+  }
+]}
