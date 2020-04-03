@@ -3,6 +3,11 @@ package com.bionexo.ubs.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * This class represents the model of data imported of csv file
+ * @author rafaelcosta
+ *
+ */
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class RawDataUBS {

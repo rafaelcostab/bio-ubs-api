@@ -18,16 +18,8 @@ public class BasicHealthUnit {
 	
 	private String phone;
 	
-	private double geocodeLat;
+	private GeoCode geoCode;
 	
-	private double geocodeLong;
-	
-	private int scoreSize;
-	
-	private int scoreAdaptationForSeniors;
-	
-	private int scoresMedicalEquipament;
-	
-	private int scoresMedicine;
+	private Scores score;
 	
 }
