@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bionexo.ubs.file.ProcessFileCsv;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("api/v1/")
@@ -18,14 +19,7 @@ public class BasicHealthUnit {
 	@GetMapping("/find_ubs")
 	@ResponseBody
 	public String FindBasicHealthUnit() {
-		
-		Long init = System.currentTimeMillis();
-
-		file.process();
-
-		System.out.println("Tempo processamento: " + (System.currentTimeMillis() - init)+ "ms");
-		
-		return "test";
+		return new Gson().toJson(file.process());
 	}
 
 }
